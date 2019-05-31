@@ -10,14 +10,14 @@ package com.udistrital.luisa;
  * @author Estudiante
  */
 public class BlackJack {
-    private String[] cartas = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+    private String[] cartas = {"2","3","4","5","6","7","8","9","T","J","Q","K","A"};
     
     public int generarIndiceAleatorio(){
         return (int) (Math.random() * 10);
     }
     
     public String repartirMano(int i, int j){        
-        String mano = cartas[i]+cartas[j];
+        String mano = cartas[i]+"|"+cartas[j];
         return mano;
     }
     
@@ -51,12 +51,15 @@ public class BlackJack {
                     valor+=7;
                     break;
                 case '8':
-                    valor+=1;
+                    valor+=8;
                     break;
                 case '9':
-                    valor+=1;
+                    valor+=9;
                     break;
-                default:
+                case 'T':
+                case 'J':
+                case 'Q':
+                case 'K':                    
                     valor+=10;
                     break;
             }
